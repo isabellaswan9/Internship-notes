@@ -2,7 +2,7 @@
 
 ##### 什么是reduce方法
 
-###### reduce方法：对数组中的每一个元素执行一个传入的回调函数
+###### reduce方法：对数组中的每一个元素执行一个传入的回调函数，将其结果汇总为单个返回
 
 reduce方法接受两个参数
 
@@ -46,8 +46,12 @@ Array.propertype.myReduce = function(callback, initValue){
 
 
 
+#### 事件循环机制
+
+设置一个监听input事件，传入$event,执行此事件处理程序后再执行对该input的赋值操作的，所以应该修改e.target.value。
+
 ```
-(input)="onTextChange($event)"
+(input)="onCommentsChange($event)"
 ```
 
 
