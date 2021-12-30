@@ -28,7 +28,7 @@ console.log(array1.reduce(reducer));
 console.log(array1.reduce(reducer, 5));
 ```
 
-##### 如何实现reduce方法
+##### 如何实现reduce方法(2021.12.30✓)
 
 ```
 Array.propertype.myReduce = function(callback, initValue){
@@ -44,9 +44,23 @@ Array.propertype.myReduce = function(callback, initValue){
 }
 ```
 
+#### [reduce方法的高级用法](https://www.jianshu.com/p/e375ba1cfc47)
+
+##### 计算数组中每个元素出现的次数
+
+###### in运算符
+
+如果指定的属性在指定的对象或其原型链中，则in运算符返回true
+
+##### 数组去重
+
 
 
 #### 事件循环机制
+
+
+
+#### 控制input的字符数量
 
 设置一个监听input事件，传入$event,执行此事件处理程序后再执行对该input的赋值操作的，所以应该修改e.target.value。
 
