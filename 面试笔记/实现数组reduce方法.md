@@ -52,9 +52,31 @@ Array.propertype.myReduce = function(callback, initValue){
 
 如果指定的属性在指定的对象或其原型链中，则in运算符返回true
 
+```
+const arr = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
+const countArr = arr.reduce((pre, cur)=>{
+	if(cur in pre){
+		pre[cur]++;
+	}else{
+		pre[cur] = 1;
+	}
+	return pre
+},{})
+console.log(countArr);
+```
+
 ##### 数组去重
 
-
+```
+const arr = [1,2,3,9,9,4,4,1,59,81,88,59]
+const newArr = arr.reduce((pre,cur)=>{
+	if(!pre.includes(cur)){
+		pre.push(cur)
+	}
+	return pre
+},[])
+console.log(newArr)
+```
 
 #### 事件循环机制
 
