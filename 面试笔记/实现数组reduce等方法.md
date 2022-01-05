@@ -1,4 +1,4 @@
-#### 实现数组reduce方法
+#### 实现数组[reduce](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)方法
 
 ##### 什么是reduce方法
 
@@ -6,7 +6,7 @@
 
 reduce方法接受两个参数
 
-1. 回调函数
+1. 回调函数（作为参数传给另一个函数的函数）
 
    这个回调函数接收4个参数，
 
@@ -78,9 +78,82 @@ const newArr = arr.reduce((pre,cur)=>{
 console.log(newArr)
 ```
 
-#### 事件循环机制
+#### 数组方法[map()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 
+map方法返回一个新数组，新数组是对数组中的每个元素执行一次回调函数得到的返回值。
 
+如果不打算返回新数组或回调函数中没有返回值，不应该使用map方法。
+
+map方法接受两个参数
+
+1. 回调函数
+
+   这个回调函数接受三个参数
+
+   + 当前处理的元素
+
+   + 当前处理元素的索引
+
+   + 调用map方法的数组
+
+2. thisArg
+
+```
+Array.prototype.mapFromScratch = function (callback,context) {
+    let newArr = [];
+    for (let a = 0; a < this.length; a++){
+        newArr.push(callback(context,this[a],a,this));
+    }
+    return newArr;
+}
+```
+
+#### 数组方法filter()
+
+filter()返回一个新数组，包含了通过测试的元素。
+
+filter()方法接受两个参数
+
+1. 回调函数
+
+   这个回调函数接受三个参数，并返回boolean值，返回true表示通过测试，返回false标识没有通过。
+
+   + 当前处理的元素
+
+   + 当前处理元素的索引
+
+   + 调用filter方法的数组
+
+2. thisArg
+
+#### 数组方法[foreach()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+
+forEach()方法对数组中的每个元素执行一次给定的函数。
+
+除了抛出异常外，没有办法终止或跳出循环。
+
+#### 数组方法[from()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
+
+from()方法对一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。
+
+```
+function unique(arr){
+	return Array.from(new Set(arr))
+}
+```
+
+数组合并并去重
+
+```
+function combine(){
+//由于不知道会有多少个arguments,所以使用apply?
+    let arr = [].concat.apply([], arguments);  //没有去重复的新数组
+    return Array.from(new Set(arr));
+}
+
+var m = [1, 2, 2], n = [2,3,3];
+console.log(combine(m,n));                     // [1, 2, 3]
+```
 
 #### 控制input的字符数量
 
