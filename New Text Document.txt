@@ -1,3 +1,0 @@
-1.获取userdepartments下的region，注意去重
-2.在perfrences下加一个entity，item为region
-3.用户选中region后，存到localstorage,无储存则默认第一个

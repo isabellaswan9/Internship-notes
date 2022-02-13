@@ -148,5 +148,85 @@ null == undefind 返回true
 
 #### 闭包
 
-闭包时能够读取其他函数内部变量的函数。即定义在一个函数内部的函数
+闭包是能够读取其他函数内部变量的函数。即定义在一个函数内部的函数
+
+
+
+#### let不会变量提升的原理
+
+他们的作用域被限制在块级内，而不是函数内。var声明的变量不是函数作用域就是全局作用域的，而使用let或const声明的变量，会被困在暂时性死区内直到它的declare(声明)被执行。
+
+
+
+#### 觉得es6比较好的特性有哪些
+
+#### Javascript模块化编程
+
+node.js项目，将javascript语言用于服务器端编程，服务端需要模块与操作系统和其他应用程序互动，于是因此流行起了模块化编程。
+
+##### es5模块导入的方法了解哪些
+
+CommonJS的一个全局性方法，require，用于加载模块，但是CommonJS规范不适用于浏览器环境。require一个模块，就需要将其加载完毕，在服务器端这个不成问题，所有模块都在本地，但在浏览器，等待时间取决于网速快慢，不能同步加载，只能异步加载，AMD（Asychronous Module Definition）规范诞生。
+
+```tsx
+//不接收对象 
+require:require('s.css'); //(es5)
+improt  's.css' //(es6)
+ 
+//接收对象
+var o = require('s.js'); //es(5)
+import o form s.js    //(es6)
+```
+
+```javascript
+//导出一个模块对象（es5）:
+module.exports={
+    add:add,
+    sub:sub
+}
+//导出一个模块对象（es6）:
+module.exports={
+    add,
+    sub
+}
+//注意：上es6这种写法属性名和属性值变量是同一个，否则要分开写
+module.exprots={
+    addFn:add,
+    sub
+}  
+```
+
+##### AMD和CMD的区别
+
+对依赖模块的执行时机处理不同，AMD依赖前置，js可以方便知道依赖模块是谁，立即加载；
+
+CMD就近依赖，需要把模块变为字符串解析一遍才知道依赖了哪些模块。
+
+##### es6的模块导入是否了解？
+
+###### export导出和import导入
+
+export导出分为命名式导出和默认导出。命名式导出每个模块可以不多，而默认到处每个模块仅一个。
+
+```
+export { myFunction }; // 导出一个已定义的函数
+export const foo = Math.sqrt(2); // 导出一个常量
+
+export default D;
+export { D as default };
+```
+
+#### TypeScript和JS的区别
+
+
+
+#### cookie,localStorage,seesionStorage的区别
+
+|                    | cookie                     | localStorage | sessionStorage |
+| ------------------ | -------------------------- | ------------ | -------------- |
+| 存储量             | 有限制,4K左右              | 5M或更大     |                |
+| 有效期             | 存在有效期(会话型或持久型) | 永久         | 至浏览器关闭   |
+| 是否随http一起发送 | 是,非宽带                  | 不会         |                |
+| 能否跨域           | 设置domain可在子域共享跨域 | 不能跨域     |                |
+| 能否使用爬虫爬取   | 能                         | 否           |                |
 

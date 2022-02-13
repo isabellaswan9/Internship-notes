@@ -1,4 +1,4 @@
-#### 实现数组[reduce](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)方法
+、实现数组[reduce](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)方法
 
 ##### 什么是reduce方法
 
