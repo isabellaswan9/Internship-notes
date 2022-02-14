@@ -68,6 +68,8 @@ IE盒模型的范围也包括 margin、border、padding、content，和标准 W3
 
 `margin: 0 auto`
 
+### 布局
+
 #### 关于flexbox
 
 flexbox是一种一维的布局模型，**一次只能处理一行或者一列的元素布局**。与之相对的是二维布局Grid，可以同时处理行和列上的布局。
