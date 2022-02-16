@@ -148,3 +148,80 @@ interface SearchFunc{
 }
 ```
 
+### 接口的extends
+
+**接口可以扩展，并且可以扩展type**
+
+```typescript
+// interface 扩展 type
+type Name = {
+    name: string;
+}
+interface User extends Name {
+    age: number;
+}
+let stu:User={name:'wang',age:1}
+```
+
+## TS中的type
+
+### 描述对象
+
+```typescript
+export type SelectOption = {
+  label: string;
+  value: string | number;
+};
+// 对象中描述函数类型
+export type FormField = {
+  name: string;
+  onModelChange?: (param: any) => void;
+  formatter?: (value: number) => string | number;
+}
+```
+
+### 描述函数类型
+
+```
+type SetUser = (name: string, age: number)=>void;
+```
+
+
+
+#### [type和interface的区别](https://juejin.cn/post/6876359681464336397)
+
+都是用来描述对象或函数类型
+
+接口可以**定义多个**，type不能定义多次
+
+接口可以**扩展**，type**不能扩展**，但可以通过交叉类型来实现扩展
+
+```typescript
+type Name = {
+    name: string;
+}
+type User = Name & { age: number  };
+let stu:User={name:'wang',age:1}
+```
+
+type能**使用in关键字生成映射类型**，interface不行
+
+```typescript
+type Keys = "name" | "sex"
+
+type DulKey = {
+    [key in Keys]: string    // 类似for...in
+}
+
+let stu: DulKey = {
+    name: "wang",
+    sex: "man"
+}
+```
+
+与接口不同，type**可以用于其他类型**，如基本类型、联合类型、元组。
+
+#### interface和class的区别
+
+ts编译为js后，所有接口和type会被擦除，而class会编译成大量代码，频繁使用class会影响程序性能。
+
