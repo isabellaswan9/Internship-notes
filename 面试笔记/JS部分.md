@@ -1,6 +1,6 @@
-#### for in 和 for of 的用法与区别
+## for in 和 for of 的用法与区别
 
-##### for in的用法
+#### for in的用法
 
 以任意顺序遍历一个对象的除Symbol以外的可枚举属性，用来循环带有字符串key的对象的方法。
 
@@ -17,7 +17,7 @@ for(var prop in obj)(
 )
 ```
 
-##### for of
+#### for of
 
 在可迭代对象上创建一个迭代循环，调用自定义迭代钩子，并为每个不同属性的值执行语句
 
@@ -46,21 +46,19 @@ for(let value of iterable){
 //"b","o","o"
 ```
 
-##### for..of和for..in的区别
+#### for..of和for..in的区别
 
-区别在于他们的迭代方式。
+**区别在于他们的迭代方式。**
 
 for...in语句以任意顺序**迭代对象的可枚举属性**。
 
 它不记录数组元素，因为这些不是枚举属性，但他记录数组索引以及自身属性和继承的属性。
 
-
-
 for...of语句**遍历可迭代对象定义要迭代的数据**。
 
 
 
-#### 数组的foreach方法 和 Map方法 、filter方法以及 reduce方法的区别
+## 数组的foreach方法 和 Map方法 、filter方法以及 reduce方法的区别
 
 foreach方法对数组的每个元素执行一次给定的函数。
 
@@ -70,27 +68,21 @@ map()方法创建一个新的数组，其结果是该数组中的每个元素是
 
  除了抛出异常以外，没有办法中止或跳出 `forEach()` 循环。<u>如果你需要中止或跳出循环，`forEach()` 方法不是应当使用的工具。</u>
 
-filter,和map数组一样返回一个新数组，这个新数组是过滤过的
+filter,和map数组一样返回一个新数组
 
 ##### 语法差异
 
-foreach和map、语法相同，每次执行匿名函数都支持三个参数，item当前每一项，index索引值、arr原数组，还有thisArg。thisArg有值时this指向thisArg参数，如果省略，或其值为null或undefined，this指向全局对象。
+foreach和map、filter**语法相同**，每次执行匿名函数都支持三个参数，item当前每一项，index索引值、arr原数组，还有thisArg。thisArg有值时this指向thisArg参数，如果省略，或其值为null或undefined，this指向全局对象。
 
 reduce的语法不同，回调函数支持四个参数，accumulator是上次调用回调时返回的累积值，currentValue,index,array调用reduce()的源数组。
 
 ##### 返回值差异
 
-foreach返回值是undefined，map的返回值是一个新数组，由原数组每个元素执行回调函数的结果组成，reduce返回函数累积处理的结果（即把数组缩减为一个值）
+foreach返回值是undefined，map、fliter的返回值是一个新数组，reduce返回函数累积处理的结果（即把数组缩减为一个值）
 
 ##### 速度差异
 
 map()速度比forEach()快
-
-#### let不会变量提升的原理
-
-他们的作用域被限制在块级内，而不是函数内。var声明的变量不是函数作用域就是全局作用域的，而使用let或const声明的变量，会被困在暂时性死区内直到它的declare(声明)被执行。
-
-
 
 #### 值相等和绝对相等
 
@@ -150,11 +142,28 @@ null == undefind 返回true
 
 闭包是能够读取其他函数内部变量的函数。即定义在一个函数内部的函数
 
-
+闭包会造成内存泄露
 
 #### let不会变量提升的原理
 
 他们的作用域被限制在块级内，而不是函数内。var声明的变量不是函数作用域就是全局作用域的，而使用let或const声明的变量，会被困在暂时性死区内直到它的declare(声明)被执行。
+
+块作用域变量在包含它们的块或`for`循环之外是不能访问的。
+
+拥有块级作用域的变量的另一个特点是，**它们不能在被声明之前读或写**。 虽然这些变量始终“存在”于它们的作用域里，但在直到声明它的代码之前的区域都属于*暂时性死区*。
+
+首先作用域是块级的，其次在声明前的代码属于暂时性死区，不能对它进行读写
+
+```
+for (let i = 0; i < 5 ; i++) {
+    setTimeout(function() {console.log(i); }, 100 * i);
+}
+//输出 0，1，2，3，4
+for (var i = 0; i < 5 ; i++) {
+    setTimeout(function() {console.log(i); }, 100 * i);
+}
+//输出4，4，4，4，4
+```
 
 
 
@@ -216,10 +225,6 @@ export default D;
 export { D as default };
 ```
 
-#### TypeScript和JS的区别
-
-
-
 #### cookie,localStorage,seesionStorage的区别
 
 |                    | cookie                     | localStorage | sessionStorage |
@@ -230,5 +235,21 @@ export { D as default };
 | 能否跨域           | 设置domain可在子域共享跨域 | 不能跨域     |                |
 | 能否使用爬虫爬取   | 能                         | 否           |                |
 
-es7
+### 逻辑||
+
+在JavaScript 的逻辑或”||“中，若左边的值为逻辑真，则返回左边的值，否则，返回的是右边的值
+
+```js
+"a" || 0 // "a"
+false || false // false
+NaN || {} // {}
+```
+
+### [剩余参数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Rest_parameters)
+
+**剩余参数**语法允许我们将一个不定数量的参数表示为一个数组。
+
+### +运算符
+
+表达式 ”2”+3+4 的值为 ‘234’
 

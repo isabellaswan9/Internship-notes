@@ -1,4 +1,4 @@
-### [行内元素/块级元素区别](https://segmentfault.com/a/1190000015202771)
+## [行内元素/块级元素区别](https://segmentfault.com/a/1190000015202771)
 
 行内元素:只能包含数据或其他行内元素,不会另起一行.
 
@@ -8,12 +8,20 @@
 
 `<div><article><p><form><table><ul>`
 
-### 几种定位方式和他们的区别
+## 几种定位方式和他们的区别
 
-| 相对定位                                                     | 绝对定位                                                     | 固定定位                     |
+| 相对定位relative                                             | 绝对定位absolute                                             | 固定定位fixed                |
 | :----------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------- |
-| 相对于元素原来的位置偏移                                     | 相对于祖元素（<html>元素（父元素没有设置定位时）或其最近的定位祖先）偏移 | 相对于浏览器视口本身         |
+| 相对于**元素原来的位置**偏移，移动后的元素在原来的位置仍会占空间； | 相对于**祖元素**（<html>元素（父元素没有设置定位时）或其最近的定位祖先）偏移 | 相对于浏览器视口本身         |
 | 它与静态定位非常相似，占据在正常的文档流中，除了你仍然可以修改它的最终位置，包括让它与页面上的其他元素重叠。 | 绝对定位的元素不再存在于正常文档布局流中。相反，它在它自己的层独立于一切。 | 工作方式与绝对定位完全相同。 |
+
+z-index属性对元素position属性为relative，absolute，fixed都可以做层级设置
+
+<img src="../../notes-images/截屏2022-03-14 下午4.28.09.png" alt="截屏2022-03-14 下午4.28.09" style="zoom:45%;float:left;" />
+
+
+
+<img src="../../notes-images/截屏2022-03-14 下午5.36.54.png" alt="截屏2022-03-14 下午5.36.54" style="zoom:45%;float:left;" />
 
 ### 使用相对定位实现头像的删除按钮固定
 
@@ -41,7 +49,7 @@ IE盒模型的范围也包括 margin、border、padding、content，和标准 W3
 
 ![img](https://img-blog.csdn.net/20140124141131218?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvenl1eml4aWFv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-#### 伪元素有哪些
+## 伪元素有哪些
 
 ##### CSS伪元素用于向某些选择器设置特殊效果。
 
@@ -64,11 +72,9 @@ IE盒模型的范围也包括 margin、border、padding、content，和标准 W3
 | :first-child | 向元素的第一个子元素添加样式           |
 | :lang        | 向带有指定lang属性的元素添加样式       |
 
-#### 使元素水平居中
+# 布局
 
-`margin: 0 auto`
-
-### 布局
+css中布局有：
 
 #### 关于flexbox
 
@@ -178,3 +184,79 @@ scaleY()
 #### transition-delay
 
 过渡动画开始之前需要等待的时间
+
+## 使用css绘制三角形的方法
+
+```css
+#triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid red;
+  //or
+  //border-top:100px solid red; //倒三角形
+}
+```
+
+
+
+```css
+.triangle{           
+		width: 0;            
+		height: 0;           
+		border: 50px solid blue;      
+		//可以通过改变边框的颜色来控制三角形的方向
+		border-color: blue transparent transparent transparent;       
+}
+```
+
+
+
+## 使元素水平，垂直居中的几种方法
+
+```
+.parent{
+	position:relative;
+}
+.child{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+}
+```
+
+
+
+```
+.parent{
+	position:relative;
+}
+.child{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+```
+
+
+
+`margin: 0 auto`
+
+## [CSS盒模型](https://www.jianshu.com/p/16c58ef8b7c8)
+
+### 边距重叠
+
+兄弟元素的边界重叠，取较大的margin
+
+<img src="../../notes-images/截屏2022-03-14 下午4.18.21.png" alt="截屏2022-03-14 下午4.18.21" style="zoom:50%;float:left" />
+
+> 答：70px
+
+### BFC
+
+<img src="../../notes-images/截屏2022-03-14 下午5.34.41.png" alt="截屏2022-03-14 下午5.34.41" style="zoom:45%;float:left" />

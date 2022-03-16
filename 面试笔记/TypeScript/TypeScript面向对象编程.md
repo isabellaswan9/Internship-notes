@@ -26,8 +26,6 @@ var obj = new Site();
 obj.name;
 ```
 
-
-
 数据类型-Void
 
 Similar to languages like Java, void is used where there is no data. For example, if a function does not return any value then you can specify void as return type.

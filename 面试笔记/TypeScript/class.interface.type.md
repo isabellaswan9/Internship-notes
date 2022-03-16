@@ -61,7 +61,7 @@ var d = new Dog('Mitzie');
 d.speak();//Mitzie makes a noise.  Mitzie barks.
 ```
 
-### [TS中的类](https://www.tslang.cn/docs/handbook/classes.html)
+## [TS中的类](https://www.tslang.cn/docs/handbook/classes.html)
 
 > ES6开始,JS有了基于类的面向对象的方式,使用TS,编译后的JavaScript可以在所有主流浏览器和平台上运行，而不需要等到下个JavaScript版本。
 
@@ -188,7 +188,7 @@ type SetUser = (name: string, age: number)=>void;
 
 
 
-#### [type和interface的区别](https://juejin.cn/post/6876359681464336397)
+## [type和interface的区别](https://juejin.cn/post/6876359681464336397)
 
 都是用来描述对象或函数类型
 
@@ -221,7 +221,7 @@ let stu: DulKey = {
 
 与接口不同，type**可以用于其他类型**，如基本类型、联合类型、元组。
 
-#### interface和class的区别
+## interface和class的区别
 
 ts编译为js后，所有接口和type会被擦除，而class会编译成大量代码，频繁使用class会影响程序性能。
 

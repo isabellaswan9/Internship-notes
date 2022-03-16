@@ -73,7 +73,7 @@ console.log(a.user); //undefined
 
 1. 创建一个空的JS对象即{};
 2. 为新对象添加属性`__proto__`,将该属性链接至构造函数的原型对象
-3. 将新对象作为this的上下文(自动调用apply()方法)
+3. **将新对象作为this的上下文(自动调用apply()方法)**
 4. 如果该函数没有**返回对象**,则返回this
 
 #### 创建一个用户自定义的对象需要两步:
@@ -148,3 +148,8 @@ function Person(){
 var p = new Person();
 ```
 
+<img src="../notes-images/截屏2022-03-14 上午12.22.12.png" alt="截屏2022-03-14 上午12.22.12" style="zoom:50%;" />
+
+<img src="../notes-images/截屏2022-03-14 上午12.32.39.png" alt="截屏2022-03-14 上午12.32.39" style="zoom:50%;float:left"/>
+
+箭头函数的this是定义时继承父级作用域的this。同时，它没有arguments，也不能new，也不能使用call、apply改变指向。

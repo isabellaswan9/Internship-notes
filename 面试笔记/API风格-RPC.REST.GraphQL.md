@@ -1,5 +1,3 @@
-
-
 ### [RPC](https://zhuanlan.zhihu.com/p/148185963)是关于action的
 
 client在server上执行代码块，换句话说，就是要像调用本地的函数一样去调远程函数。
